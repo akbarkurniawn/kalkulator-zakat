@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Zakat</title>
+    <link rel="stylesheet" href="styleweb.css">
+</head>
+<body>
+    <header>
+        <img src="umsida.png">
+    
+        <h1>Kalkulator Zakat</h1>
+        <p>Kalkulator zakat adalah layanan untuk mempermudah perhitungan jumlah zakat yang harus ditunaikan oleh setiap umat muslim sesuai ketetapan syariah. Oleh karena itu, bagi Anda yang ingin mengetahui berapa jumlah zakat yang harus ditunaikan, silahkan gunakan fasilitas Kalkulator Zakat UMSIDA di bawah ini.</p>
+    </header>
+    <main>
+        <section>
+            <h2>Jenis Zakat:</h2>
+            <select id="jenisZakat" onchange="tampilkanForm()">
+                <option value="">PILIH JENIS ZAKAT:</option>
+                <option value="penghasilan">PENGHASILAN</option>
+                <option value="perusahaan">PERUSAHAAN</option>
+                <option value="perdagangan">PERDAGANGAN</option>
+                <option value="emas">EMAS</option>
+            </select>
+        </section>
+        
+        <!-- Form Zakat Penghasilan -->
+        <section id="formPenghasilan" class="form-zakat" style="display:none;">
+            <h3>Zakat Penghasilan</h3>
+            <p>Zakat penghasilan atau yang dikenal juga sebagai zakat profesi adalah bagian dari zakat maal yang wajib dikeluarkan atas harta yang berasal dari pendapatan / penghasilan rutin dari pekerjaan yang tidak melanggar syariah. Nishab zakat penghasilan sebesar 85 gram emas per tahun. Kadar zakat penghasilan senilai 2,5%. Dalam praktiknya, zakat penghasilan dapat ditunaikan setiap bulan dengan nilai nishab per bulannya adalah setara dengan nilai seperduabelas dari 85 gram emas, dengan kadar 2,5%. Jadi apabila penghasilan setiap bulan telah melebihi nilai nishab bulanan, maka wajib dikeluarkan zakatnya sebesar 2,5% dari penghasilannya tersebut.</p>
+            <form id="penghasilanForm">
+                <label for="penghasilanBulanan">Jumlah Penghasilan Per Bulan:</label>
+                <div class="input-container">
+                    <span>Rp.</span>
+                    <input type="text" id="penghasilanBulanan" name="penghasilanBulanan" required oninput="formatNumber(this)">
+                </div>
+                <button type="button" onclick="hitungZakatPenghasilan()">Hitung</button>
+            </form>
+            <div id="hasilPenghasilan"></div>
+        </section>        
+        
+        <!-- Form Zakat Perusahaan -->
+        <section id="formPerusahaan" class="form-zakat" style="display:none;">
+            <h3>Zakat Perusahaan</h3>
+            <p>Zakat perusahaan adalah zakat yang dikenakan atas kepemilikan aset perusahaan yang telah mencapai nisab dan haul. Nishab zakat perusahaan sama dengan nishab zakat perdagangan, yaitu setara dengan 85 gram emas. Kadar zakat perusahaan adalah 2,5% dari aset yang dimiliki.</p>
+            <form id="perusahaanForm">
+                <label for="asetPerusahaan">Pendapatan Sebelum Pajak:</label>
+                <div class="input-container">
+                <span>Rp.</span>
+                <input type="text" id="asetPerusahaan" name="asetPerusahaan" required oninput="formatNumber(this)">
+                </div>
+                <button type="button" onclick="hitungZakatPerusahaan()">Hitung</button>
+            </form>
+            <div id="hasilPerusahaan"></div>
+        </section>
+        
+        <!-- Form Zakat Perdagangan -->
+        <section id="formPerdagangan" class="form-zakat" style="display:none;">
+            <h3>Zakat Perdagangan</h3>
+            <p>Zakat perdagangan adalah zakat yang dikenakan atas harta yang diperoleh dari aktivitas perdagangan. Nishab zakat perdagangan adalah setara dengan 85 gram emas, dengan kadar zakat 2,5%.</p>
+            <form id="perdaganganForm">
+                <label for="nilaiPerdagangan">Jumlah Aset dan Laba:</label>
+                <div class="input-container">
+                <span>Rp.</span>
+                <input type="text" id="nilaiPerdagangan" name="nilaiPerdagangan" required oninput="formatNumber(this)">
+                </div>
+                <button type="button" onclick="hitungZakatPerdagangan()">Hitung</button>
+            </form>
+            <div id="hasilPerdagangan"></div>
+        </section>
+        
+        <!-- Form Zakat Emas -->
+        <section id="formEmas" class="form-zakat" style="display:none;">
+            <h3>Zakat Emas</h3>
+            <p>Zakat emas adalah zakat yang dikenakan atas kepemilikan emas yang telah mencapai nisab. Nishab zakat emas adalah 85 gram emas, dengan kadar zakat 2,5%.</p>
+            <form id="emasForm">
+                <label for="nilaiEmas">Emas:</label>
+                <div class="input-container">
+                <span>Rp.</span>
+                <input type="text" id="nilaiEmas" name="nilaiEmas" required oninput="formatNumber(this)">
+                </div>
+                <button type="button" onclick="hitungZakatEmas()">Hitung</button>
+            </form>
+            <div id="hasilEmas"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kalkulator Zakat UMSIDA | 221080200074 Mochammad Akbar Kurniawan.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
